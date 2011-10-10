@@ -1,0 +1,103 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 02_sphinx.conf.dpatch by  <monty@inaugust.com>, modified by Radu Spineanu
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Changed default locations to match debian locations.
+
+@DPATCH@
+diff -Naur old/sphinx.conf.in new/sphinx.conf.in
+--- old/sphinx.conf.in	2011-08-17 09:33:15.000000000 +0000
++++ new/sphinx.conf.in	2011-08-17 09:57:54.000000000 +0000
+@@ -270,7 +270,7 @@
+ 	# shell command to invoke xmlpipe stream producer
+ 	# mandatory
+ 	#
+-	# xmlpipe_command		= cat @CONFDIR@/test.xml
++	# xmlpipe_command		= cat @localstatedir@/test.xml
+ 
+ 	# xmlpipe2 field declaration
+ 	# multi-value, optional, default is empty
+@@ -363,13 +363,13 @@
+ 	# optional, default is empty
+ 	# contents are plain text, charset_table and stemming are both applied
+ 	#
+-	# stopwords		= @CONFDIR@/data/stopwords.txt
++	# stopwords		= @localstatedir@/data/stopwords.txt
+ 
+ 
+ 	# wordforms file, in "mapfrom > mapto" plain text format
+ 	# optional, default is empty
+ 	#
+-	# wordforms		= @CONFDIR@/data/wordforms.txt
++	# wordforms		= @localstatedir@/data/wordforms.txt
+ 
+ 
+ 	# tokenizing exceptions file
+@@ -631,7 +631,7 @@
+ 
+ 	# index files path and file name, without extension
+ 	# mandatory, path must be writable, extensions will be auto-appended
+-	path			= @CONFDIR@/data/rt
++	path			= @localstatedir@/data/rt
+ 
+ 	# RAM chunk size limit
+ 	# RT index will keep at most this much data in RAM, then flush to disk
+@@ -721,11 +721,11 @@
+ 
+ 	# log file, searchd run info is logged here
+ 	# optional, default is 'searchd.log'
+-	log			= @CONFDIR@/log/searchd.log
++	log			= /var/log/searchd.log
+ 
+ 	# query log file, all search queries are logged here
+ 	# optional, default is empty (do not log queries)
+-	query_log		= @CONFDIR@/log/query.log
++	query_log		= /var/log/query.log
+ 
+ 	# client read timeout, seconds
+ 	# optional, default is 5
+@@ -741,7 +741,7 @@
+ 
+ 	# PID file, searchd process ID file name
+ 	# mandatory
+-	pid_file		= @CONFDIR@/log/searchd.pid
++	pid_file		= /var/run/sphinxsearch/searchd.pid
+ 
+ 	# max amount of matches the daemon ever keeps in RAM, per-index
+ 	# WARNING, THERE'S ALSO PER-QUERY LIMIT, SEE SetLimits() API CALL
+@@ -852,7 +852,7 @@
+ 	# optional, default is build-time configured data directory
+ 	#
+ 	# binlog_path		= # disable logging
+-	# binlog_path		= @CONFDIR@/data # binlog.001 etc will be created there
++	# binlog_path		= @localstatedir@/data # binlog.001 etc will be created there
+ 
+ 
+ 	# binlog flush/sync mode
+diff -Naur old/sphinx-min.conf.in new/sphinx-min.conf.in
+--- old/sphinx-min.conf.in	2011-04-18 14:39:40.000000000 +0000
++++ new/sphinx-min.conf.in	2011-08-17 09:43:43.000000000 +0000
+@@ -26,7 +26,7 @@
+ index test1
+ {
+ 	source			= src1
+-	path			= @CONFDIR@/data/test1
++	path			= @localstatedir@/data/test1
+ 	docinfo			= extern
+ 	charset_type		= sbcs
+ }
+@@ -56,11 +56,11 @@
+ {
+ 	listen			= 9312
+ 	listen			= 9306:mysql41
+-	log			= @CONFDIR@/log/searchd.log
+-	query_log		= @CONFDIR@/log/query.log
++	log			= /var/log/sphinxsearch/searchd.log
++	query_log		= /var/log/sphinxsearch/query.log
+ 	read_timeout		= 5
+ 	max_children		= 30
+-	pid_file		= @CONFDIR@/log/searchd.pid
++	pid_file		= /var/run/sphinxsearch/searchd.pid
+ 	max_matches		= 1000
+ 	seamless_rotate		= 1
+ 	preopen_indexes		= 1

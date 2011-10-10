@@ -1,0 +1,16 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 01_Makefile_am.dpatch by  <monty@inaugust.com>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Change the locations built by install-data-hook to match debian install.
+
+@DPATCH@
+diff -urNad trunk~/Makefile.am trunk/Makefile.am
+--- trunk~/Makefile.am	2008-02-18 13:20:26.000000000 -0800
++++ trunk/Makefile.am	2008-02-18 13:21:51.000000000 -0800
+@@ -8,4 +8,4 @@
+ sysconf_DATA = sphinx.conf.dist example.sql
+ 
+ install-data-hook:
+-	mkdir -p $(DESTDIR)$(localstatedir)/data && mkdir -p $(DESTDIR)$(localstatedir)/log
++	mkdir -p $(DESTDIR)$(localstatedir)

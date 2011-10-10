@@ -1,0 +1,8 @@
+Patches applied in the Debian version of :
+
+debian/patches/01_Makefile_am.dpatch (<monty@inaugust.com>):
+  Change the locations built by install-data-hook to match debian install.
+
+debian/patches/02_sphinx.conf.dpatch (<monty@inaugust.com>, modified by Radu Spineanu):
+  Changed default locations to match debian locations.
+

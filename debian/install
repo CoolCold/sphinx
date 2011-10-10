@@ -1,0 +1,5 @@
+debian/tmp/usr/bin/*
+doc/sphinx.* /usr/share/doc/sphinxsearch
+doc/internals* /usr/share/doc/sphinxsearch
+example.sql /usr/share/doc/sphinxsearch/example-conf
+sphinx*.conf.dist /usr/share/doc/sphinxsearch/example-conf

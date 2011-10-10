@@ -1,0 +1,20 @@
+Source: sphinxsearch
+Section: misc
+Priority: optional
+Maintainer: Radu Spineanu <radu@debian.org>
+Build-Depends: debhelper (>= 7), autotools-dev, gawk, libmysqlclient-dev, dpatch, libpq-dev, autoconf, libtool, automake, docbook-to-man, libexpat-dev, libstemmer-dev, dh-autoreconf, adduser 
+Standards-Version: 3.9.2
+
+Package: sphinxsearch
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, adduser
+Description: Fast standalone full-text SQL search engine
+ Sphinx is a standalone full text search engine, meant to provide fast,
+ size-efficient and relevant fulltext search functions to other applications. 
+ Sphinx was specially designed to integrate well with SQL databases and 
+ scripting languages. Currently built-in data sources support fetching data 
+ either via direct connection to MySQL or PostgreSQL, or using XML pipe 
+ mechanism (a pipe to indexer in special XML-based format which Sphinx 
+ recognizes).
+ .
+ Sphinx is an acronym which is officially decoded as SQL Phrase Index. 

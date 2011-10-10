@@ -1,0 +1,47 @@
+This work was packaged for Debian by:
+
+    Radu Spineanu <radu@debian.org> on Sun, 25 Oct 2009 00:09:31 +0300
+
+It is based on the Ubuntu package by Marco Rodrigues and David Leal from 
+launchpad.net.
+
+It was downloaded from http://www.sphinxsearch.com/downloads
+
+Upstream Author:Andrew Aksyonoff <shodan@shodan.ru>
+
+Copyright:
+
+----- License of sphinxsearch
+
+   Copyright (C) 2001-2009 by Andrew Aksyonoff <shodan@shodan.ru>
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; version 2 dated June, 1991.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program;  if not, write to the Free Software
+   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+
+On Debian GNU/Linux systems, the complete text of the GNU General
+Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+----- Other Licenses and Copyright
+
+Directory: api/libsphinxclient and files
+Copyright (c) Andrew Aksyonoff
+License: GNU Library General Public License
+
+Directory: api/ruby and files
+Copyright (c) Dmytro Shteflyuk <kpumuk@kpumuk.info>
+License: Ruby license
+
+Directory: contrib/perlapi and files
+Copyright (c) Len Kranendonk
+License : GNU General Public License

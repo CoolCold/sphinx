@@ -1,0 +1,5 @@
+/etc/default/sphinxsearch
+/etc/logrotate.d/sphinxsearch
+/etc/cron.d/sphinxsearch
+/etc/init.d/sphinxsearch
+/etc/sphinxsearch/sphinx.conf.sample

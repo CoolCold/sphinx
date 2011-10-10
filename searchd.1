@@ -1,0 +1,58 @@
+.TH "sphinxsearch" "1" 
+.SH "NAME" 
+searchd \(em socket server handling search requests backed by Sphinx 
+.SH "SYNOPSIS" 
+.PP 
+\fBsearchd\fR [\fB\-\-config \fICONFIGFILE\fR\fP]  [\fB\-\-cpustats\fP]  [\fB\-\-iostats\fP]  [\fB\-\-index \fIINDEX\fR\fP]  [\fB\-\-port \fIPORT\fR\fP]  
+.PP 
+\fBsearchd\fR \-\-status [\fB\-\-config \fICONFIGFILE\fR\fP]  [\fB\-\-pidfile \fIPIDFILE\fR\fP]  
+.PP 
+\fBsearchd\fR \-\-stop [\fB\-\-config \fICONFIGFILE\fR\fP]  [\fB\-\-pidfile \fIPIDFILE\fR\fP]  
+.SH "DESCRIPTION" 
+.PP 
+Sphinx is a collection of programs that aim to provide high  
+quality fulltext search. \fBsearchd\fR answers search 
+requests coming in on a socket. 
+.PP 
+This manual page was written for the \fBDebian\fP distribution 
+because the original program does not have a manual page. 
+Instead, it has documentation in HTML format, see below. 
+.SH "OPTIONS" 
+.PP 
+These programs follow the usual GNU command line syntax, 
+with long options starting with two dashes (`\-').  A summary of 
+options is included below.  For a complete description, see the 
+HTML documentation. 
+.IP "\fB\-\-config\fP         " 10 
+Specify an alternate configuration file to use. 
+.IP "\fB\-\-cpustats\fP         " 10 
+Provide per-query CPU stats in searchd log. 
+.IP "\fB\-\-iostats\fP         " 10 
+Provide per-query I/O stats in searchd log. 
+.IP "\fB-h\fP           \fB\-\-help\fP         " 10 
+Show summary of options. 
+.IP "\fB\-\-pidfile\fP         " 10 
+Used with \fB\-\-status\fP and \fB\-\-stop\fP to find the correct searchd. 
+.IP "\fB\-\-status\fP         " 10 
+Print status variables of a running searchd. 
+.IP "\fB\-\-stop\fP         " 10 
+Send SIGTERM to a running searchd. 
+.SH "SEE ALSO" 
+.PP 
+indexer (1), search (1). 
+.PP 
+Sphinx and it's programs are documented fully by the \fISpinx reference manual\fP available  
+in /usr/share/doc/sphinxsearch. 
+.SH "AUTHOR" 
+.PP 
+This manual page was written by Christian Hofstaedtler ch+debian-packages@zeha.at for 
+the \fBDebian\fP system (but may be used by others).  Permission is 
+granted to copy, distribute and/or modify this document under 
+the terms of the GNU General Public License, Version 2 any 
+later version published by the Free Software Foundation. 
+ 
+.PP 
+On Debian systems, the complete text of the GNU General Public 
+License can be found in /usr/share/common-licenses/GPL. 
+ 
+.\" created by instant / docbook-to-man, Fri 26 Aug 2011, 08:07 

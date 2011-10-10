@@ -1,0 +1,57 @@
+.TH "sphinxsearch" "1" 
+.SH "NAME" 
+indexer \(em fulltext index generator 
+.SH "SYNOPSIS" 
+.PP 
+\fBindexer\fR [\fB\-\-config \fICONFIGFILE\fR\fP]  [\fB\-\-rotate\fP]  [\fB\-\-noprogress\fP  | \fB\-\-quiet\fP ]  [\fB\-\-all\fP  | \fIINDEX\fR \&... ]  
+.PP 
+\fBindexer\fR \-\-buildstops \fIOUTPUTFILE\fR \fICOUNT\fR [\fB\-\-config \fICONFIGFILE\fR\fP]  [\fB\-\-noprogress\fP  | \fB\-\-quiet\fP ]  [\fB\-\-all\fP  | \fIINDEX\fR \&... ]  
+.PP 
+\fBindexer\fR \-\-merge \fIMAIN_INDEX\fR \fIDELTA_INDEX\fR [\fB\-\-config \fICONFIGFILE\fR\fP]  [\fB\-\-rotate\fP]  [\fB\-\-noprogress\fP  | \fB\-\-quiet\fP ]  
+.SH "DESCRIPTION" 
+.PP 
+Sphinx is a collection of programs that aim to provide high  
+quality fulltext search. \fBindexer\fR fetches all 
+documents from the configured sources and creates the index data 
+files. 
+.PP 
+This manual page was written for the \fBDebian\fP distribution 
+because the original program does not have a manual page. 
+Instead, it has documentation in HTML format, see below. 
+.SH "OPTIONS" 
+.PP 
+These programs follow the usual GNU command line syntax, 
+with long options starting with two dashes (`\-').  A summary of 
+options is included below.  For a complete description, see the 
+HTML documentation. 
+.IP "\fB\-\-config\fP         " 10 
+Specify an alternate configuration file to use. 
+.IP "\fB\-\-all\fP         " 10 
+Causes \fBindexer\fR to (re-)index all indexes, instead of the specified ones. 
+.IP "\fB\-\-quiet\fP         " 10 
+Suppress all non-error output. 
+.IP "\fB\-\-noprogress\fP         " 10 
+Suppress progress information. 
+.IP "\fB-h\fP           \fB\-\-help\fP         " 10 
+Show summary of options. 
+.IP "\fB\-\-rotate\fP         " 10 
+Writes index data files as INDEX.new files and sends a SIGHUP to searchd, causing it to rotate the index files. 
+.SH "SEE ALSO" 
+.PP 
+search (1), searchd (1). 
+.PP 
+Sphinx and it's programs are documented fully by the \fISpinx reference manual\fP available  
+in /usr/share/doc/sphinxsearch. 
+.SH "AUTHOR" 
+.PP 
+This manual page was written by Christian Hofstaedtler ch+debian-packages@zeha.at for 
+the \fBDebian\fP system (but may be used by others).  Permission is 
+granted to copy, distribute and/or modify this document under 
+the terms of the GNU General Public License, Version 2 any 
+later version published by the Free Software Foundation. 
+ 
+.PP 
+On Debian systems, the complete text of the GNU General Public 
+License can be found in /usr/share/common-licenses/GPL. 
+ 
+.\" created by instant / docbook-to-man, Fri 26 Aug 2011, 08:07 
