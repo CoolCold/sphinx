@@ -82,7 +82,7 @@ running()
     return 0
 }
 
-force_stop() {
+do_force_stop() {
 # Forcefully kill the process
     [ ! -f "$PIDFILE" ] && return
     if running ; then
@@ -101,21 +101,27 @@ force_stop() {
     rm -f $PIDFILE
     return 0
 }
-
-case "$1" in
-  start)
-        echo -n "Starting $DESC: "
-
+do_start() {
         # Check if we have the configuration file
         if [ ! -f /etc/sphinxsearch/sphinx.conf ]; then
             echo "\n"
             echo "Please create an /etc/sphinxsearch/sphinx.conf configuration file."
             echo "A template is provided as /etc/sphinxsearch/sphinx.conf.sample."
-            exit 0
+            exit 1
         fi
 
         start-stop-daemon --start --pidfile $PIDFILE --chuid sphinxsearch --exec ${DAEMON}
-	[ -n "$STARTDELAY" ] && sleep $STARTDELAY
+}
+do_stop() {
+        start-stop-daemon --stop --quiet --oknodo --user sphinxsearch --pidfile $PIDFILE \
+            --exec $DAEMON
+}
+
+case "$1" in
+  start)
+        echo -n "Starting $DESC: "
+        do_start
+        [ -n "$STARTDELAY" ] && sleep $STARTDELAY
 
         if running ; then
             echo "$NAME."
@@ -125,13 +131,12 @@ case "$1" in
         ;;
   stop)
         echo -n "Stopping $DESC: "
-        start-stop-daemon --stop --quiet --oknodo --user sphinxsearch --pidfile $PIDFILE \
-            --exec $DAEMON
+        do_stop
         echo "$NAME."
         ;;
   force-stop)
         echo -n "Forcefully stopping $DESC: "
-        force_stop
+        do_force_stop
         if ! running ; then
             echo "$NAME."
         else
@@ -140,10 +145,9 @@ case "$1" in
         ;;
   restart|reload|force-reload)
     echo -n "Restarting $DESC: "
-        start-stop-daemon --stop --quiet --user sphinxsearch --oknodo --pidfile $PIDFILE \
-            --exec $DAEMON
+        do_stop
         [ -n "$DODTIME" ] && sleep $DODTIME
-        start-stop-daemon --start --exec ${DAEMON}
+        do_start
         echo "$NAME."
         ;;
 
