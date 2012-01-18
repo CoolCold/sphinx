@@ -47,6 +47,15 @@ fi
 
 set -e
 
+# Make sure the pidfile directory exists with correct permissions
+piddir=`dirname "$PIDFILE"`
+if [ ! -d "$piddir" ]; then
+    mkdir -p "$piddir"
+    chown -R sphinxsearch "$piddir"
+    chgrp -R sphinxsearch "$piddir"
+fi
+
+
 running_pid()
 {
     # Check if a given process pid's cmdline matches a given name
